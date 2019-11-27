@@ -20,7 +20,7 @@ def publish_messages(project, topic_name):
             break
         else:
             # Data must be a bytestring
-            #data = data.encode('utf-8')
+            data = data.encode('utf-8')
             publisher.publish(topic_path, data=data)
             print(data)
             time.sleep(30)
@@ -34,6 +34,3 @@ ap.add_argument("-t","--topic_name", required=True)
 args=vars(ap.parse_args())
 
 publish_messages(args["project"], args["topic_name"])
-
-
-
